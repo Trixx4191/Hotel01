@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 import { BookingWidget } from "./BookingWidget";
 import { ImageWithFallback } from "./figma/ImageWithFallback";

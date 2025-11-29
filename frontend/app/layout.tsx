@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Router } from "../components/Router"; // adjust path if needed
+import HomePage from "../app/page"; // adjust imports for your pages
+import RoomsPage from "../app/rooms/page";
+import DiningPage from "../app/dining/page";
+import ExperiencesPage from "../app/experiences/page";
+import MeetingsPage from "../app/meetings/page";
+import GalleryPage from "../app/gallery/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +29,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const routes = [
+    { path: "/", component: HomePage },
+    { path: "/rooms", component: RoomsPage },
+    { path: "/dining", component: DiningPage },
+    { path: "/experiences", component: ExperiencesPage },
+    { path: "/meetings", component: MeetingsPage },
+    { path: "/gallery", component: GalleryPage },
+  ];
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Router routes={routes}>
+          {children}
+        </Router>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+"use client";
+
 import { RoomCard } from "./RoomCard";
 import { Button } from "./ui/button";
 import { motion } from "motion/react";
