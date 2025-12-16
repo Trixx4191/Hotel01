@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Link } from "./Router";
+import { useRouter } from "./Router";
 
 export function ExperiencesSection() {
   const experiences = [
@@ -26,6 +26,14 @@ export function ExperiencesSection() {
       route: "/spa",
     },
   ];
+
+  // safe router navigate: fall back to normal anchor navigation when Router context is missing
+  let navigate: ((path: string) => void) | undefined;
+  try {
+    navigate = useRouter().navigate;
+  } catch {
+    navigate = undefined;
+  }
 
   return (
     <section className="py-24 bg-white">
@@ -80,22 +88,29 @@ export function ExperiencesSection() {
                     <p className="text-white/90 mb-6 leading-relaxed">
                       {experience.description}
                     </p>
-                    <Link to={experience.route}>
-                      <Button 
-                        variant="secondary" 
-                        className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white hover:text-neutral-900 transition-all duration-300"
-                      >
+                    <a
+                      href={experience.route}
+                      onClick={(e) => {
+                        if (navigate) {
+                          e.preventDefault();
+                          navigate!(experience.route);
+                        }
+                        // otherwise allow normal navigation (useful if Router isn't mounted)
+                      }}
+                      className="inline-flex items-center gap-2 rounded-md px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white hover:text-neutral-900 transition-all duration-300"
+                    >
+                      <span className="flex items-center gap-2">
                         {experience.link}
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+                      </span>
+                    </a>
+                   </div>
+                 </div>
+               </Card>
+             </motion.div>
+           ))}
+         </div>
+       </div>
+     </section>
+   );
+ }

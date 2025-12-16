@@ -1,15 +1,16 @@
 "use client"; 
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
-import { Calendar, MapPin, Users, ChevronDown } from "lucide-react";
+import { Calendar, Users, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Link } from "./Router";
+import { Link, useRouter } from "./Router";
 
 export function BookingWidget() {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2 Adults");
+  const { navigate } = useRouter();
 
   return (
     <Card className="bg-white/95 backdrop-blur-md shadow-2xl border-0 p-6 lg:p-8 max-w-4xl mx-auto">
@@ -78,11 +79,12 @@ export function BookingWidget() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Link to="/booking">
-              <Button className="w-full py-3 bg-neutral-900 hover:bg-neutral-800 text-white transition-all duration-200 shadow-lg hover:shadow-xl">
-                Check Availability
-              </Button>
-            </Link>
+            <Button
+              onClick={() => navigate("/booking")}
+              className="w-full py-3 bg-neutral-900 hover:bg-neutral-800 text-white transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              Check Availability
+            </Button>
           </motion.div>
         </div>
       </div>

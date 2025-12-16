@@ -1,66 +1,51 @@
 "use client";
-import { useState, createContext, useContext } from "react";
+import NextLink from "next/link";
+import { usePathname, useRouter as useNextRouter } from "next/navigation";
+import React from "react";
 
-type Route = {
-  path: string;
-  component: React.ComponentType;
-};
-
-type RouterContextType = {
-  currentPath: string;
-  navigate: (path: string) => void;
-};
-
-const RouterContext = createContext<RouterContextType | null>(null);
+/*
+  Replaces the custom in-memory Router with wrappers around Next.js navigation.
+  - export useRouter() -> { currentPath, navigate(path) }
+  - export Link component that delegates to next/link
+  This keeps existing imports like `import { Link, useRouter } from "./Router";`
+  working while using Next.js routing (required to run Next.js frontend).
+*/
 
 export function useRouter() {
-  const context = useContext(RouterContext);
-  if (!context) {
-    throw new Error("useRouter must be used within a Router");
-  }
-  return context;
-}
+  const pathname = usePathname() ?? "/";
+  const router = useNextRouter();
 
-interface RouterProps {
-  children: React.ReactNode;
-  routes: Route[];
-}
-
-export function Router({ children, routes }: RouterProps) {
-  const [currentPath, setCurrentPath] = useState("/");
-
-  const navigate = (path: string) => {
-    setCurrentPath(path);
-    window.scrollTo(0, 0);
+  return {
+    currentPath: pathname,
+    navigate: (path: string) => {
+      // keep behavior consistent with previous API
+      if (path === pathname) return;
+      router.push(path);
+      // scroll to top similar to previous implementation
+      if (typeof window !== "undefined") window.scrollTo(0, 0);
+    },
   };
-
-  const currentRoute = routes.find(route => route.path === currentPath);
-  const Component = currentRoute?.component;
-
-  return (
-    <RouterContext.Provider value={{ currentPath, navigate }}>
-      {Component ? <Component /> : children}
-    </RouterContext.Provider>
-  );
 }
 
-export function Link({ to, children, className, onClick }: { 
-  to: string; 
-  children: React.ReactNode; 
+export function Link({
+  to,
+  children,
+  className,
+  onClick,
+  replace,
+  prefetch,
+}: {
+  to: string;
+  children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  replace?: boolean;
+  prefetch?: boolean;
 }) {
-  const { navigate } = useRouter();
-  
+  // Next.js Link supports className and onClick directly
   return (
-    <button
-      className={className}
-      onClick={() => {
-        navigate(to);
-        onClick?.();
-      }}
-    >
+    <NextLink href={to} replace={replace} prefetch={prefetch} onClick={onClick} className={className}>
       {children}
-    </button>
+    </NextLink>
   );
 }
