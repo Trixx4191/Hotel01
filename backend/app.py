@@ -159,7 +159,7 @@ def create_room():
 
     return jsonify({"message": f"Room {room_number} created successfully"}), 201
 
-# Get all rooms (Anyone can view)
+# Get all rooms (Anyone can view rooms)
 @app.route('/rooms', methods=['GET'])
 @jwt_required(optional=True)
 def get_rooms():
