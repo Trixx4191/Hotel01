@@ -110,3 +110,4 @@ export function SpaPage() {
     </div>
   );
 }
+export default SpaPage;

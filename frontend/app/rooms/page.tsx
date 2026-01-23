@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { RoomCard } from "../components/RoomCard";
@@ -8,7 +10,7 @@ import { motion } from "motion/react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useState } from "react";
 
-export function RoomsSuitesPage() {
+export default function RoomsSuitesPage() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [filterCategory, setFilterCategory] = useState("all");
 

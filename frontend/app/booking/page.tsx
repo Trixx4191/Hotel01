@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Button } from "../components/ui/button";
@@ -9,7 +11,7 @@ import { Calendar, Users, Bed } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-export function BookingPage() {
+export default function BookingPage() {
   const [step, setStep] = useState(1);
 
   return (

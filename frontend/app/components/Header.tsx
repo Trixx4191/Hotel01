@@ -4,7 +4,8 @@ import { Button } from "./ui/button";
 import { Menu, Search, User, Calendar, MapPin } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Link, useRouter } from "./Router";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-light tracking-wide text-neutral-900 hover:opacity-80 transition-opacity duration-200">
+            <Link href="/" className="text-2xl font-light tracking-wide text-neutral-900 hover:opacity-80 transition-opacity duration-200">
               <span className="font-normal">MAISON</span>
               <span className="text-amber-600 ml-1">ROYAL</span>
             </Link>
@@ -23,38 +24,38 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <Link to="/rooms" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
+            <Link href="/rooms" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
               Rooms & Suites
             </Link>
-            <Link to="/dining" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
+            <Link href="/dining" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
               Dining
             </Link>
-            <Link to="/experiences" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
+            <Link href="/experiences" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
               Experiences
             </Link>
-            <Link to="/meetings" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
+            <Link href="/meetings" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
               Meetings & Events
             </Link>
-            <Link to="/gallery" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
+            <Link href="/gallery" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200">
               Gallery
             </Link>
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/search" className="text-neutral-700 hover:text-neutral-900">
+            <Link href="/search" className="text-neutral-700 hover:text-neutral-900">
               <Button variant="ghost" size="sm" className="text-neutral-700 hover:text-neutral-900">
                 <Search className="h-4 w-4 mr-2" />
                 Search
               </Button>
             </Link>
-            <Link to="/signin" className="text-neutral-700 hover:text-neutral-900">
+            <Link href="/signin" className="text-neutral-700 hover:text-neutral-900">
               <Button variant="ghost" size="sm" className="text-neutral-700 hover:text-neutral-900">
                 <User className="h-4 w-4 mr-2" />
                 Sign In
               </Button>
             </Link>
-            <Link to="/booking" className="bg-neutral-900 hover:bg-neutral-800 text-white px-6">
+            <Link href="/booking" className="bg-neutral-900 hover:bg-neutral-800 text-white px-6">
               <Button className="bg-neutral-900 hover:bg-neutral-800 text-white px-6">
                 Book Now
               </Button>
@@ -79,36 +80,36 @@ export function Header() {
             className="lg:hidden py-6 border-t border-neutral-200/50"
           >
             <nav className="flex flex-col space-y-4">
-              <Link to="/rooms" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/rooms" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
                 Rooms & Suites
               </Link>
-              <Link to="/dining" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/dining" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
                 Dining
               </Link>
-              <Link to="/experiences" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/experiences" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
                 Experiences
               </Link>
-              <Link to="/meetings" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/meetings" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
                 Meetings & Events
               </Link>
-              <Link to="/gallery" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/gallery" className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 py-2 text-left" onClick={() => setIsMenuOpen(false)}>
                 Gallery
               </Link>
             </nav>
             <div className="flex flex-col space-y-3 mt-6 pt-6 border-t border-neutral-200/50">
-              <Link to="/search" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/search" onClick={() => setIsMenuOpen(false)}>
                 <Button variant="ghost" className="justify-start text-neutral-700 hover:text-neutral-900 w-full">
                   <Search className="h-4 w-4 mr-2" />
                   Search
                 </Button>
               </Link>
-              <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/signin" onClick={() => setIsMenuOpen(false)}>
                 <Button variant="ghost" className="justify-start text-neutral-700 hover:text-neutral-900 w-full">
                   <User className="h-4 w-4 mr-2" />
                   Sign In
                 </Button>
               </Link>
-              <Link to="/booking" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/booking" onClick={() => setIsMenuOpen(false)}>
                 <Button className="bg-neutral-900 hover:bg-neutral-800 text-white w-full">
                   Book Now
                 </Button>

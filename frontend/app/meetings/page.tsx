@@ -23,7 +23,7 @@ import {
 import { motion } from "motion/react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-export function MeetingsEventsPage() {
+export default function MeetingsEventsPage() {
   const venues = [
     {
       id: "1",

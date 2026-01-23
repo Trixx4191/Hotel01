@@ -131,3 +131,4 @@ export function OffersPage() {
     </div>
   );
 }
+export default OffersPage;

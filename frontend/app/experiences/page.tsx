@@ -20,7 +20,7 @@ import {
 import { motion } from "motion/react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-export function ExperiencesPage() {
+export default function ExperiencesPage() {
   const experiences = {
     wellness: [
       {

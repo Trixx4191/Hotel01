@@ -66,3 +66,4 @@ export function RoomServicePage() {
     </div>
   );
 }
+export default RoomServicePage;

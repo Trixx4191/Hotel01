@@ -56,3 +56,4 @@ export function PetServicesPage() {
     </div>
   );
 }
+export default PetServicesPage;

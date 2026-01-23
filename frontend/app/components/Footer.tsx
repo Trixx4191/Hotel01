@@ -3,7 +3,7 @@
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
-import { Link } from "./Router";
+import Link from "next/link";
 import { 
   MapPin, 
   Phone, 
@@ -75,22 +75,22 @@ export function Footer() {
           <div>
             <h4 className="text-lg mb-6">Quick Links</h4>
             <nav className="space-y-3">
-              <Link to="/rooms" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/rooms" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Rooms & Suites
               </Link>
-              <Link to="/dining" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/dining" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Dining
               </Link>
-              <Link to="/spa" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/spa" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Spa & Wellness
               </Link>
-              <Link to="/meetings" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/meetings" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Meetings & Events
               </Link>
-              <Link to="/gallery" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/gallery" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Gallery
               </Link>
-              <Link to="/offers" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/offers" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Special Offers
               </Link>
             </nav>
@@ -100,22 +100,22 @@ export function Footer() {
           <div>
             <h4 className="text-lg mb-6">Services</h4>
             <nav className="space-y-3">
-              <Link to="/concierge" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/concierge" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Concierge
               </Link>
-              <Link to="/room-service" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/room-service" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Room Service
               </Link>
-              <Link to="/valet" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/valet" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Valet Parking
               </Link>
-              <Link to="/airport-transfer" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/airport-transfer" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Airport Transfer
               </Link>
-              <Link to="/business-center" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/business-center" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Business Center
               </Link>
-              <Link to="/pet-services" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
+              <Link href="/pet-services" className="block text-neutral-300 hover:text-white transition-colors duration-200 text-left">
                 Pet Services
               </Link>
             </nav>
@@ -185,13 +185,13 @@ export function Footer() {
               © 2024 Maison Royal. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <Link to="/privacy" className="text-neutral-400 hover:text-white transition-colors duration-200">
+              <Link href="/privacy" className="text-neutral-400 hover:text-white transition-colors duration-200">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-neutral-400 hover:text-white transition-colors duration-200">
+              <Link href="/terms" className="text-neutral-400 hover:text-white transition-colors duration-200">
                 Terms of Service
               </Link>
-              <Link to="/accessibility" className="text-neutral-400 hover:text-white transition-colors duration-200">
+              <Link href="/accessibility" className="text-neutral-400 hover:text-white transition-colors duration-200">
                 Accessibility
               </Link>
             </div>

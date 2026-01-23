@@ -4,13 +4,14 @@ import { Card } from "./ui/card";
 import { Calendar, Users, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Link, useRouter } from "./Router";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function BookingWidget() {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2 Adults");
-  const { navigate } = useRouter();
+  const router = useRouter();
 
   return (
     <Card className="bg-white/95 backdrop-blur-md shadow-2xl border-0 p-6 lg:p-8 max-w-4xl mx-auto">
@@ -80,7 +81,7 @@ export function BookingWidget() {
             whileTap={{ scale: 0.98 }}
           >
             <Button
-              onClick={() => navigate("/booking")}
+              onClick={() => router.push("/booking")}
               className="w-full py-3 bg-neutral-900 hover:bg-neutral-800 text-white transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Check Availability
@@ -91,7 +92,7 @@ export function BookingWidget() {
 
       {/* Special Offers Link */}
       <div className="mt-6 pt-6 border-t border-neutral-200/50 text-center">
-        <Link to="/offers" className="text-amber-600 hover:text-amber-700 text-sm transition-colors duration-200">
+        <Link href="/offers" className="text-amber-600 hover:text-amber-700 text-sm transition-colors duration-200">
           View Special Offers & Packages
         </Link>
       </div>

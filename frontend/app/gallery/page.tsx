@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Button } from "../components/ui/button";
@@ -8,7 +10,7 @@ import { motion } from "motion/react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useState } from "react";
 
-export function GalleryPage() {
+export default function GalleryPage() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const galleryCategories = {

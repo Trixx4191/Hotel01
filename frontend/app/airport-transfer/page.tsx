@@ -49,3 +49,4 @@ export function AirportTransferPage() {
     </div>
   );
 }
+export default AirportTransferPage;
