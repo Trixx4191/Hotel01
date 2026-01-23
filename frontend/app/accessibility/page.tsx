@@ -77,3 +77,4 @@ export function AccessibilityPage() {
     </div>
   );
 }
+export default AccessibilityPage;

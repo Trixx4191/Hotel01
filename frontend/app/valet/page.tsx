@@ -43,3 +43,4 @@ export function ValetPage() {
     </div>
   );
 }
+export default ValetPage;

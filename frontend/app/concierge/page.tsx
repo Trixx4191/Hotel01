@@ -89,3 +89,4 @@ export function ConciergePage() {
     </div>
   );
 }
+export default ConciergePage;

@@ -7,7 +7,7 @@ import { Clock, MapPin, Phone, Star, Utensils, Wine, Coffee, Users } from "lucid
 import { motion } from "motion/react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-export function DiningPage() {
+export default function DiningPage() {
   const restaurants = [
     {
       id: "1",

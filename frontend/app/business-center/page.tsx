@@ -56,3 +56,4 @@ export function BusinessCenterPage() {
     </div>
   );
 }
+export default BusinessCenterPage;
