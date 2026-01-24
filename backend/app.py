@@ -198,7 +198,7 @@ def delete_room(room_id):
     return jsonify({"message": f"Room {room.id} deleted successfully"}), 200
 
 
-# Create booking (Guest only)
+# Create booking (Guest route only)
 
 @app.route('/bookings', methods=['POST'])
 @role_required("guest")
@@ -362,7 +362,7 @@ scheduler.add_job(
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        # Run initial update
+        # Run initial updates
         update_room_statuses()
     scheduler.start()
     app.run(debug=True)
