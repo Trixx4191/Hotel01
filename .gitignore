@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Node / Next.js
+node_modules/
+.next/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local notes and private workspace files
+/private/
+/personal/
+/review/
+/notes/private/
+/.agents/
+/.codex/
+/.claude/
+/.aws/
+/backend/hotel.db
+/backend/users.db
+/backend/1
+/backend/1.pub
+/backend/*.db
+/backend/*.db-*
+/backend/*.sqlite
+/backend/*.sqlite3
+/backend/instance/
